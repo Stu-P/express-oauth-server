@@ -135,11 +135,11 @@ var handleError = function(e, req, res, response) {
     res.set(response.headers);
   }
 
-  if (e instanceof UnauthorizedRequestError) {
-    return res.status(e.code);
-  }
+ // if (e instanceof UnauthorizedRequestError) {
+ //   return res.status(e.code);
+ // }
 
-  res.status(e.code).send({ error: e.name, error_description: e.message });
+ return res.status(e.code).send({ error: e.name, error_description: e.message });
 };
 
 /**
