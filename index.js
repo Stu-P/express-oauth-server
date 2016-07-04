@@ -45,11 +45,11 @@ ExpressOAuthServer.prototype.authenticate = function(options) {
       })
       .tap(function(token) {
         res.locals.oauth = { token: token };
+        next();
       })
       .catch(function(e) {
         return handleError(e, req, res);
       })
-      .finally(next);
   };
 };
 
